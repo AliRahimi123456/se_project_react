@@ -1,0 +1,133 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0000004d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.modal_opened {
+  visibility: visible;
+}
+
+.modal__close {
+  position: absolute;
+  background-image: url(../../../assets/close-icon.svg);
+  top: 20px;
+  right: 28px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  width: 14px;
+  height: 14px;
+}
+
+.modal__content {
+  background-color: #fff;
+  position: relative;
+  padding: 28px 28px 36px;
+  border-radius: 12px;
+  max-width: 496px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.modal__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__label {
+  font-family: Cabinet Grotesk, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.modal__label_type_radio {
+  flex-direction: row;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.5);
+}
+.modal__label_type_radio:has(:checked) {
+  color: black;
+}
+.modal__legend {
+  font-family: Cabinet Grotesk, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  margin-bottom: 12px;
+}
+
+.modal__radio-buttons {
+  gap: 8px;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal__submit {
+  padding: 8px 16px;
+  margin-top: 32px;
+  margin-bottom: 36px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: rgba(255, 255, 255, 1);
+  font-family: Cabinet Grotesk, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  align-self: flex-start;
+}
+
+.modal__input {
+  display: block;
+  font-family: Cabinet Grotesk, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid black;
+}
+.modal__image {
+  object-fit: cover;
+  max-width: 100%;
+  border-radius: 8px;
+}
+.modal__content_type_image {
+  padding: 0;
+}
+.modal__caption {
+  margin-left: 32px;
+  margin-bottom: 12px;
+  margin-top: 20px;
+font-family: Cabinet Grotesk, sans-serif;
+font-size: 20px;
+font-weight: 700;
+line-height: 24px;
+
+
+}
+.modal__weather {
+  margin-left: 32px;
+  margin-top: 0px;
+font-family: Cabinet Grotesk;
+font-size: 20px;
+font-weight: 700;
+line-height: 24px;
+
+}
