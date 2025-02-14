@@ -6,7 +6,7 @@ import {
 } from "../../../../utils/constants";
 
 import sunny from "../../../../assets/sunny.svg";
-import CurrentTemperatureUnitContext from "../../../contexts/CurrentTemperatureUnitContext";
+import CurrentTemperatureUnitContext from "../../../../../react-router-demo/src/components/contexts/CurrentTemperatureUnitContext";
 
 function WeatherCard({ weatherData }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
