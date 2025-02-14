@@ -1,4 +1,5 @@
 import avatar from "../../assets/avatar.svg";
+import "./SideBar.css";
 
 
 function SideBar() {

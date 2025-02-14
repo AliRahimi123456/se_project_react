@@ -1,4 +1,4 @@
-
+import "./ClothesSection.css";
 import { defaultClothingItems } from "../../utils/constants";
 
 
