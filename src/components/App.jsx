@@ -10,7 +10,7 @@ import Main from "./src/components/Main/Main";
 import ItemModal from "./src/components/ItemModal/ItemModal";
 import { getWeather, filterWeatherData } from "../utils/weatherApi";
 import Footer from "./Footer/Footer.jsx";
-import CurrentTemperatureUnitContext from "../../react-router-demo/src/components/contexts/CurrentTemperatureUnitContext.jsx";
+import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext.jsx";
 import AddItemModal from "./AddItemModal/AddItemModal.jsx";
 import Profile from "./Profile/Profile.jsx";
 import { defaultClothingItems } from "../utils/constants";

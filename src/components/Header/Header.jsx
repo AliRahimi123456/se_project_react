@@ -42,4 +42,3 @@ function Header({ handleAddClick, weatherData }) {
 
 export default Header;
 
-//Sir please the application is working properly from my side and I run it before pushing the code and it is working properly, but I con't know how to send the screen shot from here.

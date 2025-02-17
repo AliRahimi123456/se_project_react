@@ -18,10 +18,10 @@ export default function AddItemModal({ onClose, isOpen, onAddItemModalSubmit }) 
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Fixed typo here
+    e.preventDefault(); 
     onAddItemModalSubmit({ name, imageUrl, weather });
 
-    // Empty the inputs
+  
     setName("");
     setImageUrl("");
     setWeather("");
@@ -67,7 +67,7 @@ export default function AddItemModal({ onClose, isOpen, onAddItemModalSubmit }) 
             type="radio"
             className="modal__radio-input"
             value="hot"
-            onChange={handleWeatherChange} // Fixed here
+            onChange={handleWeatherChange} 
             checked={weather === "hot"}
           />
           Hot
@@ -80,7 +80,7 @@ export default function AddItemModal({ onClose, isOpen, onAddItemModalSubmit }) 
             type="radio"
             className="modal__radio-input"
             value="warm"
-            onChange={handleWeatherChange} // Fixed here
+            onChange={handleWeatherChange} 
             checked={weather === "warm"}
           />
           Warm
@@ -93,7 +93,7 @@ export default function AddItemModal({ onClose, isOpen, onAddItemModalSubmit }) 
             type="radio"
             className="modal__radio-input"
             value="cold"
-            onChange={handleWeatherChange} // Fixed here
+            onChange={handleWeatherChange}
             checked={weather === "cold"}
           />
           Cold
