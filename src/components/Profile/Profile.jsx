@@ -8,7 +8,7 @@ function Profile(handleCardClick) {
             <section className="profile__sidebar">
             <SideBar />
             </section>
-            <section className="profile__clothing-items"></section>
+            {/* <section className="profile__clothing-items"></section> */}
             <ClothesSection handleCardClick={handleCardClick}/>
         </div>
     );

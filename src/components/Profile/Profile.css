@@ -1,7 +1,8 @@
 .profile {
     display: flex;
-    gap: 50px;
+    gap: 40px;
    flex-direction: row;
+   /* width: 50px; */
     
 
 }
