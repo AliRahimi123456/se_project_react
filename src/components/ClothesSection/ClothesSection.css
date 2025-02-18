@@ -1,23 +1,28 @@
 .clothes-section__header {
-    display: flex;
-    flex-direction: row;
-    height: 56px;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  flex-direction: row;
+  height: 56px;
+  align-items: center;
+  gap: 20px;
 }
 .clothes-section__add-btn {
-    border: none;
-    background-color: transparent;
-   
-    font-family: Cabinet Grotesk;
-font-weight: 700;
-font-size: 20px;
-color: rgba(0,0,0, 0.6);
+  border: none;
+  background-color: transparent;
 
-
+  font-family: Cabinet Grotesk;
+  font-weight: 700;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.6);
 }
 .clothes-section__title {
-    font-family: Cabinet Grotesk, sans-serif;
-    font-weight: 700;
-    font-size: 20px;
+  font-family: Cabinet Grotesk, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+.clothes-section__items {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 0;
 }
