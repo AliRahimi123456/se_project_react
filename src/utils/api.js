@@ -5,7 +5,7 @@ function getItems() {
     return res.ok ? res.json() : Promise.reject("Error: ${res.status}");
   });
 }
-function addItem(name, imageUrl, weather) {
+function addItems(name, imageUrl, weather) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
@@ -14,4 +14,4 @@ function addItem(name, imageUrl, weather) {
     body: JSON.stringify({ name, imageUrl, weather }),
   }).then((res) => res.json());
 }
-export { getItems, addItem };
+export { getItems, addItems };

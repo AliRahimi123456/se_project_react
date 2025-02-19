@@ -14,7 +14,7 @@ import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitCon
 import AddItemModal from "./AddItemModal/AddItemModal.jsx";
 import Profile from "./Profile/Profile.jsx";
 import { defaultClothingItems } from "../utils/constants";
-import { addItem, getItems } from "../utils/api.js";
+import { addItems, getItems } from "../utils/api.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -35,8 +35,9 @@ function App() {
   };
 
   const handleCardClick = (card) => {
-    setActiveModal("preview");
     console.log(card);
+    setActiveModal("preview");
+
     setSelectedCard(card);
   };
 
@@ -47,12 +48,7 @@ function App() {
     setActiveModal("");
   };
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
-    // };
-    //TODO tell backend to save item to the database
-    //in the .then, update clothingItems array
-    // setClothingItems([{ name, link: imageUrl, weather }, ...clothingItems]);
-    //close the modal
-    addItem(name, imageUrl, weather)
+    addItems(name, imageUrl, weather)
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
         closeActiveModal();
@@ -72,7 +68,7 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        console.log(data);
+        // console.log(data);
 
         setClothingItems(data);
       })
