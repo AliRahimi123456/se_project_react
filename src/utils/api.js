@@ -1,6 +1,6 @@
 const baseUrl = "http://localhost:3001";
 //function to check the response status
-function checkResponse(res) {
+export function checkResponse(res) {
   return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 }
 

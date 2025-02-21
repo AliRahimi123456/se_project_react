@@ -19,32 +19,20 @@ export default function AddItemModal({
       setValues({ name: "", imageUrl: "", weather: "" });
     }
   }, [isOpen, setValues]);
-  // const [name, setName] = useState("");
-  // const [imageUrl, setImageUrl] = useState("");
-  // const [weather, setWeather] = useState("");
-
-  // const handleNameChange = (e) => {
-  //   setName(e.target.value);
-  // };
-  // const handleImageUrlChange = (e) => {
-  //   setImageUrl(e.target.value);
-  // };
-  // const handleWeatherChange = (e) => {
-  //   setWeather(e.target.value);
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   onAddItemModalSubmit({ name, imageUrl, weather });
-
-  //   setName("");
-  //   setImageUrl("");
-  //   setWeather("");
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItemModalSubmit(values);
+
+    Promise.resolve(onAddItemModalSubmit(values))
+      .then(() => {
+        setValues({ name: "", imageUrl: "", weather: "" });
+      })
+      .catch((error) => {
+        console.error("Error submitting form:", error);
+      })
+      .finally(() => {
+        console.log("Form submission process completed.");
+      });
   };
 
   return (
