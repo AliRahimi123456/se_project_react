@@ -1,16 +1,13 @@
-import { useContext } from "react"; 
+import { useContext } from "react";
 import "./WeatherCard.css";
-import {
-  weatherOptions,
-  defaultWeatherOptions,
-} from "../../../../utils/constants";
+import { weatherOptions, defaultWeatherOptions } from "../../utils/constants";
 
-import sunny from "../../../../assets/sunny.svg";
-import CurrentTemperatureUnitContext from "../../../../contexts/CurrentTemperatureUnitContext";
+// import sunny from "../../../../assets/sunny.svg";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 
 function WeatherCard({ weatherData }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  
+
   const filteredOptions = weatherOptions.filter((option) => {
     return (
       option.day === weatherData.isDay &&
@@ -24,6 +21,8 @@ function WeatherCard({ weatherData }) {
   } else {
     weatherOption = filteredOptions[0];
   }
+
+  console.log(weatherOption);
 
   return (
     <section className="weather-card">

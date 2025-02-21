@@ -44,100 +44,98 @@ export const weatherOptions = [
     url: new URL("../assets/night/cloudy.svg", import.meta.url).href,
   },
 
-{
-  day: true,
-  condition: "rainy",
-  url: new URL("../assets/day/rainy.png", import.meta.url).href,
-},
-{
-  day: true,
-  condition: "thunderstorm",
-  url: new URL("../assets/day/thunderstorm.png", import.meta.url).href,
-},
-{
-  day: false,
-  condition: "rainy",
-  url: new URL("../assets/day/rainy.png", import.meta.url).href,
-},
-{
-  day: false,
-  condition: "thunderstorm",
-  url: new URL("../assets/day/thunderstorm.png", import.meta.url).href,
-},
+  {
+    day: true,
+    condition: "rainy",
+    url: new URL("../assets/day/rainy.png", import.meta.url).href,
+  },
+  {
+    day: true,
+    condition: "thunderstorm",
+    url: new URL("../assets/day/thunderstorm.png", import.meta.url).href,
+  },
+  {
+    day: false,
+    condition: "rainy",
+    url: new URL("../assets/day/rainy.png", import.meta.url).href,
+  },
+  {
+    day: false,
+    condition: "thunderstorm",
+    url: new URL("../assets/day/thunderstorm.png", import.meta.url).href,
+  },
 
+  {
+    day: true,
+    condition: "rainy",
+    url: new URL("../assets/night/rainy.png", import.meta.url).href,
+  },
+  {
+    day: true,
+    condition: "thunderstorm",
+    url: new URL("../assets/night/thunderstorm.png", import.meta.url).href,
+  },
+  {
+    day: false,
+    condition: "rainy",
+    url: new URL("../assets/night/rainy.png", import.meta.url).href,
+  },
+  {
+    day: false,
+    condition: "thunderstorm",
+    url: new URL("../assets/night/thunderstorm.png", import.meta.url).href,
+  },
 
-{
-  day: true,
-  condition: "rainy",
-  url: new URL("../assets/night/rainy.png", import.meta.url).href,
-},
-{
-  day: true,
-  condition: "thunderstorm",
-  url: new URL("../assets/night/thunderstorm.png", import.meta.url).href,
-},
-{
-  day: false,
-  condition: "rainy",
-  url: new URL("../assets/night/rainy.png", import.meta.url).href,
-},
-{
-  day: false,
-  condition: "thunderstorm",
-  url: new URL("../assets/night/thunderstorm.png", import.meta.url).href,
-},
+  {
+    day: true,
+    condition: "snow",
+    url: new URL("../assets/day/snow.png", import.meta.url).href,
+  },
+  {
+    day: true,
+    condition: "foggy",
+    url: new URL("../assets/day/foggy.png", import.meta.url).href,
+  },
+  {
+    day: false,
+    condition: "snow",
+    url: new URL("../assets/day/snow.png", import.meta.url).href,
+  },
+  {
+    day: false,
+    condition: "foggy",
+    url: new URL("../assets/day/foggy.png", import.meta.url).href,
+  },
 
-{
-  day: true,
-  condition: "snow",
-  url: new URL("../assets/day/snow.png", import.meta.url).href,
-},
-{
-  day: true,
-  condition: "foggy",
-  url: new URL("../assets/day/foggy.png", import.meta.url).href,
-},
-{
-  day: false,
-  condition: "snow",
-  url: new URL("../assets/day/snow.png", import.meta.url).href,
-},
-{
-  day: false,
-  condition: "foggy",
-  url: new URL("../assets/day/foggy.png", import.meta.url).href,
-},
-
-{
-  day: true,
-  condition: "snow",
-  url: new URL("../assets/night/snow.png", import.meta.url).href,
-},
-{
-  day: true,
-  condition: "foggy",
-  url: new URL("../assets/night/foggy.png", import.meta.url).href,
-},
-{
-  day: false,
-  condition: "snow",
-  url: new URL("../assets/night/snow.png", import.meta.url).href,
-},
-{
-  day: false,
-  condition: "foggy",
-  url: new URL("../assets/night/foggy.png", import.meta.url).href,
-},
+  {
+    day: true,
+    condition: "snow",
+    url: new URL("../assets/night/snow.png", import.meta.url).href,
+  },
+  {
+    day: true,
+    condition: "foggy",
+    url: new URL("../assets/night/foggy.png", import.meta.url).href,
+  },
+  {
+    day: false,
+    condition: "snow",
+    url: new URL("../assets/night/snow.png", import.meta.url).href,
+  },
+  {
+    day: false,
+    condition: "foggy",
+    url: new URL("../assets/night/foggy.png", import.meta.url).href,
+  },
 ];
 export const defaultWeatherOptions = {
   day: {
-    url: new URL("../assets/day/defualt.png", import.meta.url).href,
+    url: new URL("../assets/day/default.png", import.meta.url).href,
   },
   night: {
     url: new URL("../assets/night/default.png", import.meta.url).href,
   },
 };
-
 
 export const defaultClothingItems = [
   {

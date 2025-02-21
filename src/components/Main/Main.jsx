@@ -1,14 +1,17 @@
 // TODO - import useContext from react
 import { useContext } from "react";
-import WeatherCard from "../WeatherCard/WeatherCard";
+import WeatherCard from "../WeatherCard/WeatherCard.jsx";
 import "./Main.css";
-import ItemCard from "../../../ItemCard/ItemCard";
-import CurrentTemperatureUnitContext from "../../../../contexts/CurrentTemperatureUnitContext";
+import ItemCard from "../ItemCard/ItemCard";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 // import { defaultClothingItems } from "../../../../utils/constants";
 
 function Main({ weatherData, handleCardClick, clothingItems }) {
   // TODOS: call useContext and destructure the currentTemperatureUnit
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+
+  console.log("clothingItems", clothingItems);
+  console.log("weatherType", weatherData.type);
 
   return (
     <main>

@@ -5,16 +5,16 @@ import "./App.css";
 import { coordinates, APIkey } from "../utils/constants";
 import Header from "./Header/Header";
 
-import Main from "./src/components/Main/Main";
+import Main from "./Main/Main.jsx";
 // import ModalWithForm from "./src/components/ModalWithForm";
-import ItemModal from "./src/components/ItemModal/ItemModal";
+import ItemModal from "./ItemModal/ItemModal.jsx";
 import { getWeather, filterWeatherData } from "../utils/weatherApi";
 import Footer from "./Footer/Footer.jsx";
 import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext.jsx";
 import AddItemModal from "./AddItemModal/AddItemModal.jsx";
 import Profile from "./Profile/Profile.jsx";
 import { defaultClothingItems } from "../utils/constants";
-import { addItems, getItems } from "../utils/api.js";
+import { addItems, getItems, deleteItem } from "../utils/api.js";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -40,6 +40,20 @@ function App() {
 
     setSelectedCard(card);
   };
+  const handleDeleteClick = (cardId) => {
+    deleteItem(cardId).then(() => {
+      setClothingItems(
+        clothingItems.filter((item) => {
+          if (cardId === item._id) {
+            return false;
+          } else {
+            return true;
+          }
+        })
+      );
+      closeActiveModal();
+    });
+  };
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
@@ -48,9 +62,11 @@ function App() {
     setActiveModal("");
   };
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
+    // console.log(name);
     addItems(name, imageUrl, weather)
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
+
         closeActiveModal();
       })
       .catch(console.error);
@@ -116,6 +132,7 @@ function App() {
             activeModal={activeModal}
             card={selectedCard}
             onClose={closeActiveModal}
+            handleDeleteClick={handleDeleteClick}
           />
         )}
       </div>
