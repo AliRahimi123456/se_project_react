@@ -6,12 +6,9 @@ import ItemCard from "../ItemCard/ItemCard";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 // import { defaultClothingItems } from "../../../../utils/constants";
 
-function Main({ weatherData, handleCardClick, clothingItems }) {
+function Main({ weatherData, handleCardClick, clothingItems, handleCardLike }) {
   // TODOS: call useContext and destructure the currentTemperatureUnit
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-
-  console.log("clothingItems", clothingItems);
-  console.log("weatherType", weatherData.type);
 
   return (
     <main>
@@ -24,17 +21,17 @@ function Main({ weatherData, handleCardClick, clothingItems }) {
         <ul className="cards__list">
           {clothingItems
             .filter((item) => {
-              console.log(item.weather, weatherData.type);
               return item.weather === weatherData.type;
             })
             .map((item) => {
               console.log(item);
-              console.log("showing the items");
+
               return (
                 <ItemCard
                   key={item._id}
                   item={item}
                   onCardClick={handleCardClick}
+                  handleCardLike={handleCardLike}
                 />
               );
             })}

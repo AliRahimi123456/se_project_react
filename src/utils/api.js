@@ -21,11 +21,12 @@ function getItems() {
 ``;
 
 // Function to add a new item
-function addItems(name, imageUrl, weather) {
+function addItems(name, imageUrl, weather, token) {
   return request(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, imageUrl, weather }),
   });
@@ -35,4 +36,25 @@ function deleteItem(id) {
     method: "DELETE",
   }).then(checkResponse);
 }
-export { getItems, addItems, deleteItem };
+
+function removeCardLike(id, token) {
+  return request(`${baseUrl}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
+
+function addCardLike(id, token) {
+  return request(`${baseUrl}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
+
+export { getItems, addItems, deleteItem, removeCardLike, addCardLike };

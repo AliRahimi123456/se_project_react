@@ -1,13 +1,24 @@
 .sidebar {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    width: 305px;
-    font-size: 20px;
-
+  /* display: flex; */
+  /* flex-direction: row;
+    gap: 16px; */
+  width: 305px;
+  font-size: 20px;
 }
 .sidebar__username {
-    font-weight: 700;
-    font-size: 20px;
-    font-family: 'CABINET GROTESK',sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: "CABINET GROTESK", sans-serif;
+}
+.sidebar__profile {
+  display: flex;
+  margin-bottom: 24px;
+}
+.sidebar__btn {
+  font-weight: 700;
+  font-size: 20px;
+  border: none;
+  appearance: none;
+  background: trasnparent;
+  padding: 0;
 }

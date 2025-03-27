@@ -5,10 +5,33 @@
   justify-content: center;
 }
 .card__name {
-  position: absolute;
-  top: 15px;
+  font-family: Cabinet Grotesk;
+  background-color: #ffffff;
+  padding: 2px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #00000099;
+
   margin: 0;
 }
 .card__image {
   width: 100%;
+}
+.like-button {
+  background-color: transparent;
+
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+.like-button.liked {
+  color: red;
+  font-weight: bold;
+}
+.card__like-container {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  top: 10px;
 }

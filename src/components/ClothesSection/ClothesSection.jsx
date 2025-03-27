@@ -1,13 +1,18 @@
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
+import { useContext } from "react";
+import { CurrentUserContext } from "../Contexts/CurrentUser";
 // import { defaultClothingItems } from "../../utils/constants";
 
 function ClothesSection({
   clothingItems,
-  currentUser,
   handleCardClick,
   onAddNewClick,
+  handleCardLike,
 }) {
+  const currentUser = useContext(CurrentUserContext);
+  console.log(clothingItems);
+  console.log(currentUser);
   return (
     <div className="clothes-section">
       <div className="clothes-section__header">
@@ -26,6 +31,7 @@ function ClothesSection({
               key={item._id}
               item={item}
               onCardClick={handleCardClick}
+              handleCardLike={handleCardLike}
             />
           ))}
       </ul>

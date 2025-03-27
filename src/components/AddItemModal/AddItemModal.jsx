@@ -13,6 +13,8 @@ export default function AddItemModal({
     imageUrl: "",
     weather: "",
   });
+  const isValid =
+    name.trim() !== "" && imageUrl.trim() !== "" && weather.trim() !== "";
 
   useEffect(() => {
     if (isOpen) {
@@ -109,6 +111,16 @@ export default function AddItemModal({
           Cold
         </label>
       </fieldset>
+      <div className="modal__button-container">
+        <button
+          type="submit"
+          className={`modal__primary-btn ${
+            !isValid ? "modal__primary-btn_disabled" : ""
+          }`}
+        >
+          Add garment{" "}
+        </button>
+      </div>
     </ModalWithForm>
   );
 }
