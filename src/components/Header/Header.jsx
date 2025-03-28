@@ -4,7 +4,7 @@ import "./Header.css";
 import logo from "../../assets/logo.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import avatar from "../../assets/avatar.svg";
-import { CurrentUserContext } from "../Contexts/CurrentUser";
+import { CurrentUserContext } from "../../context/CurrentUser";
 
 function Header({ handleAddClick, weatherData, onSignUpClick, onLogInClick }) {
   const currentDate = new Date().toLocaleString("default", {

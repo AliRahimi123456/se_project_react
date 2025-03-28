@@ -7,7 +7,7 @@ import Main from "./Main/Main.jsx";
 import ItemModal from "./ItemModal/ItemModal.jsx";
 import { getWeather, filterWeatherData } from "../utils/weatherApi";
 import Footer from "./Footer/Footer.jsx";
-import CurrentTemperatureUnitContext from "../contexts/CurrentTemperatureUnitContext.jsx";
+import CurrentTemperatureUnitContext from "../context/CurrentTemperatureUnitContext";
 import AddItemModal from "./AddItemModal/AddItemModal.jsx";
 import Profile from "./Profile/Profile.jsx";
 import {
@@ -20,7 +20,7 @@ import {
 import RegisterModal from "../components/RegisterModal";
 import LoginModal from "../components/LoginModal";
 import { registerUser, loginUser, checkToken } from "../utils/auth";
-import { CurrentUserContext } from "./Contexts/CurrentUser.jsx";
+import { CurrentUserContext } from "../context/CurrentUser.js";
 import ProtectedRoute from "../components/ProtectedRoute";
 
 function App() {

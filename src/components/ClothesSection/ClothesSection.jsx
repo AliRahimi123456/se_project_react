@@ -1,7 +1,7 @@
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
 import { useContext } from "react";
-import { CurrentUserContext } from "../Contexts/CurrentUser";
+import { CurrentUserContext } from "../../context/CurrentUser";
 // import { defaultClothingItems } from "../../utils/constants";
 
 function ClothesSection({
