@@ -20,7 +20,7 @@ import {
 import RegisterModal from "../components/RegisterModal";
 import LoginModal from "../components/LoginModal";
 import { registerUser, loginUser, checkToken } from "../utils/auth";
-import { CurrentUserContext } from "./Contexts/CurrentUser.js";
+import { CurrentUserContext } from "./Contexts/CurrentUser.jsx";
 import ProtectedRoute from "../components/ProtectedRoute";
 
 function App() {

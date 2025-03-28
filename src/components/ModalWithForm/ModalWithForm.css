@@ -21,6 +21,7 @@
   top: 20px;
   right: 28px;
   cursor: pointer;
+  background-repeat: no-repeat;
   border: none;
   background-color: transparent;
   width: 14px;
@@ -165,7 +166,7 @@
   width: 40px;
   height: 40px;
   background-color: transparent;
-  background-image: url(../../assets/close-light-icon.png);
+  /* background-image: url(../../assets/close-light-icon.png); */
   cursor: pointer;
   border: none;
 }
