@@ -4,17 +4,13 @@ import ModalWithForm from "./ModalWithForm/ModalWithForm";
 const LoginModal = ({ onClose, handleLogin, onSignUpClick, isOpen }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  console.log(isOpen, "isopen login");
+  // console.log(isOpen, "isopen login");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     handleLogin({ email, password });
   };
 
-  // have logic to determine if both the email and password are valid.
-  // if they are valid then remove the "disabled-btn" class from your submit button.
-  // If they are not valid then add the "disabled-btn" class to your submit button.
-  console.log(email);
   const isValid = email.trim() !== "" && password.trim() !== "";
 
   return (
@@ -45,7 +41,7 @@ const LoginModal = ({ onClose, handleLogin, onSignUpClick, isOpen }) => {
         />
       </label>
 
-      <labe className="modal__label">
+      <label className="modal__label">
         Password
         <input
           className="modal__input"
@@ -57,7 +53,7 @@ const LoginModal = ({ onClose, handleLogin, onSignUpClick, isOpen }) => {
             setPassword(inputText);
           }}
         />
-      </labe>
+      </label>
       <div className="modal__button-container">
         <button
           type="submit"
@@ -71,7 +67,7 @@ const LoginModal = ({ onClose, handleLogin, onSignUpClick, isOpen }) => {
         <button
           className="modal__secondary-btn"
           type="button"
-          onclick={onSignUpClick}
+          onClick={onSignUpClick}
         >
           or Sign Up
         </button>

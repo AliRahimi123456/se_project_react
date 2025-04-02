@@ -15,6 +15,21 @@ export const loginUser = ({ email, password }) => {
     body: JSON.stringify({ email, password }),
   }).then((res) => res.json());
 };
+export const updateProfile = (token, userData) => {
+  return fetch(`${BASE_URL}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(userData),
+  }).then((res) => {
+    if (!res.ok) {
+      return res.json().then((err) => Promise.reject(err));
+    }
+    return res.json();
+  });
+};
 
 export const checkToken = (token) => {
   return fetch(`${BASE_URL}/users/me`, {

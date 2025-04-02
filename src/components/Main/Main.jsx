@@ -24,7 +24,7 @@ function Main({ weatherData, handleCardClick, clothingItems, handleCardLike }) {
               return item.weather === weatherData.type;
             })
             .map((item) => {
-              console.log(item);
+              // console.log(item);
 
               return (
                 <ItemCard

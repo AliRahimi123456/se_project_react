@@ -22,17 +22,23 @@ function Header({ handleAddClick, weatherData, onSignUpClick, onLogInClick }) {
         {currentDate}, {weatherData.city}
       </p>
       <ToggleSwitch />
-      <button
-        onClick={handleAddClick}
-        type="button"
-        className="header__add-clothes-btn"
-      >
-        + Add Clothes
-      </button>
+      {currentUser && (
+        <button
+          onClick={handleAddClick}
+          type="button"
+          className="header__add-clothes-btn"
+        >
+          + Add Clothes
+        </button>
+      )}
       <Link to="/profile" className="header__link">
         <div className="header__user-container">
           <p className="header__username">{currentUser?.name}</p>
-          <img src={avatar} alt="User avatar" className="header__avatar" />
+          <img
+            src={currentUser?.avatar}
+            alt="User avatar"
+            className="header__avatar"
+          />
         </div>
       </Link>
       {!currentUser && (

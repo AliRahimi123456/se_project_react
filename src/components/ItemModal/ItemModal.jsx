@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { CurrentUserContext } from "../../context/CurrentUser";
 import "./ItemModal.css";
 function ItemModal({ activeModal, onClose, card, handleDeleteClick }) {
   console.log("Item Modal Received:", card);
+  const user = useContext(CurrentUserContext);
+  console.log(user);
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__content modal__content_type_image">
@@ -19,13 +23,14 @@ function ItemModal({ activeModal, onClose, card, handleDeleteClick }) {
             <h2 className="modal__caption">{card?.name}</h2>
             <p className="modal__weather">Weather: {card?.weather}</p>
           </div>
-
-          <button
-            className="modal__delete-item"
-            onClick={() => handleDeleteClick(card._id)}
-          >
-            Delete Item
-          </button>
+          {card.owner === user._id && (
+            <button
+              className="modal__delete-item"
+              onClick={() => handleDeleteClick(card._id)}
+            >
+              Delete Item
+            </button>
+          )}
         </div>
       </div>
     </div>

@@ -31,11 +31,34 @@ function addItems(name, imageUrl, weather, token) {
     body: JSON.stringify({ name, imageUrl, weather }),
   });
 }
-function deleteItem(id) {
+function deleteItem(id, token) {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
   }).then(checkResponse);
 }
+
+// function deleteItem(cardId, token) {
+//   if (!token) {
+//     return Promise.reject("Error: Missing authentication token.");
+//   }
+
+//   return fetch(`${baseUrl}/items/${cardId}`, {
+//     method: "DELETE",
+//     headers: {
+//       Authorization: `Bearer ${token}`, // Ensure token is included
+//       "Content-Type": "application/json",
+//     },
+//   }).then(checkResponse);
+// }
+// function deleteItem(id) {
+//   return fetch(`${baseUrl}/items/${id}`, {
+//     method: "DELETE",
+//   }).then(checkResponse);
+// }
 
 function removeCardLike(id, token) {
   return request(`${baseUrl}/items/${id}/likes`, {

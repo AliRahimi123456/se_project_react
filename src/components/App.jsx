@@ -22,6 +22,8 @@ import LoginModal from "../components/LoginModal";
 import { registerUser, loginUser, checkToken } from "../utils/auth";
 import { CurrentUserContext } from "../context/CurrentUser.js";
 import ProtectedRoute from "../components/ProtectedRoute";
+import EditProfileModal from "./EditProfileModal.jsx";
+import { updateProfile } from "../utils/auth";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -39,6 +41,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
 
   const handleToggleSwitchChange = () => {
@@ -80,7 +83,9 @@ function App() {
       }
     });
   };
-
+  const onEditProfileClick = () => {
+    setActiveModal("open-profile-modal");
+  };
   // Handling Sign Up Click
   const onSignUpClick = () => {
     console.log("is this onSignUpclick firing");
@@ -124,19 +129,67 @@ function App() {
   };
 
   const handleCardClick = (card) => {
-    console.log(card);
+    // console.log(card);
     setActiveModal("preview");
     setSelectedCard(card);
   };
 
   const handleDeleteClick = (cardId) => {
-    deleteItem(cardId)
+    const token = localStorage.getItem("jwt");
+
+    if (!token) {
+      console.error(
+        "Error: Missing authentication token. User must be logged in."
+      );
+      alert("You need to be logged in to delete an item.");
+      return;
+    }
+
+    deleteItem(cardId, token)
       .then(() => {
-        setClothingItems(clothingItems.filter((item) => item._id !== cardId));
-        closeActiveModal();
+        console.log("Item deleted successfully");
+        setClothingItems((prevItems) =>
+          prevItems.filter((item) => item._id !== cardId)
+        );
+        setActiveModal("");
       })
-      .catch((error) => console.error("Error deleting item:", error));
+      .catch((err) => console.error("Error deleting item:", err));
   };
+  const onUpdateProfile = (updateUserData) => {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
+      console.log("No token found. User must be logged in.");
+
+      return;
+    }
+    updateProfile(token, updateUserData)
+      .then((res) => {
+        if (res.data) {
+          setUser(res.data);
+          closeActiveModal();
+        } else {
+          console.error("Profile update failed:", res.message);
+        }
+      })
+      .catch((error) => console.error("Error updating profile:", error));
+  };
+  // const handleDeleteClick = (cardId) => {
+  //   const token = localStorage.getItem("jwt");
+  //   deleteItem(cardId, token) //passing the token to the API request
+  //     .then(() => {
+  //       setClothingItems(clothingItems.filter((item) => item._id !== cardId));
+  //     })
+  //     .catch((error) => console.error("Error deleting item:", error));
+  // };
+
+  // const handleDeleteClick = (cardId) => {
+  //   deleteItem(cardId)
+  //     .then(() => {
+  //       setClothingItems(clothingItems.filter((item) => item._id !== cardId));
+  //       closeActiveModal();
+  //     })
+  //     .catch((error) => console.error("Error deleting item:", error));
+  // };
 
   const handleAddClick = () => {
     setActiveModal("add-garment");
@@ -150,7 +203,9 @@ function App() {
     const token = localStorage.getItem("jwt");
     addItems(name, imageUrl, weather, token)
       .then((newItem) => {
-        setClothingItems([newItem, ...clothingItems]);
+        console.log(newItem);
+        setClothingItems([newItem.data, ...clothingItems]);
+        console.log(clothingItems);
         closeActiveModal();
       })
       .catch((error) => console.error("Error adding item:", error));
@@ -209,6 +264,7 @@ function App() {
                     clothingItems={clothingItems}
                     onAddNewClick={handleAddClick}
                     handleCardLike={handleCardLike}
+                    onEditProfileClick={onEditProfileClick}
                   />
                 }
               />
@@ -225,6 +281,12 @@ function App() {
             onClose={closeActiveModal}
             onRegister={handleRegister}
             onLogInClick={onLogInClick}
+          />
+          <EditProfileModal
+            isOpen={activeModal == "open-profile-modal"}
+            onClose={closeActiveModal}
+            currentUser={user}
+            onUpdateProfile={onUpdateProfile}
           />
           <LoginModal
             isOpen={activeModal == "login-modal"}
