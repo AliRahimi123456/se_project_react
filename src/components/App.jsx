@@ -52,36 +52,44 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (token) {
-      checkToken(token).then((res) => {
-        console.log(res);
-        if (res.data) {
-          setUser(res.data);
-          setIsLoggedIn(true);
-        }
-      });
+      checkToken(token)
+        .then((res) => {
+          console.log(res);
+          if (res.data) {
+            setUser(res.data);
+            setIsLoggedIn(true);
+          }
+        })
+        .catch((err) => {
+          console.log("Error checking token:", err);
+        });
     }
   }, []);
 
   // Handling Registration
   const handleRegister = (userData) => {
-    registerUser(userData).then((res) => {
-      if (res.email) {
-        handleLogin({ email: userData.email, password: userData.password });
-        closeActiveModal();
-      }
-    });
+    registerUser(userData)
+      .then((res) => {
+        if (res.email) {
+          handleLogin({ email: userData.email, password: userData.password });
+          closeActiveModal();
+        }
+      })
+      .catch((err) => console.error("Error during registion:", err));
   };
 
   // Handling Login
   const handleLogin = (credentials) => {
-    loginUser(credentials).then((res) => {
-      if (res.token) {
-        localStorage.setItem("jwt", res.token);
-        setIsLoggedIn(true);
-        checkToken(res.token).then((user) => setUser(user.data));
-        closeActiveModal();
-      }
-    });
+    loginUser(credentials)
+      .then((res) => {
+        if (res.token) {
+          localStorage.setItem("jwt", res.token);
+          setIsLoggedIn(true);
+          checkToken(res.token).then((user) => setUser(user.data));
+          closeActiveModal();
+        }
+      })
+      .catch((err) => console.error("Error during login:", err));
   };
   const onEditProfileClick = () => {
     setActiveModal("open-profile-modal");
@@ -116,7 +124,7 @@ function App() {
             cards.map((item) => (item._id === _id ? updatedCard.data : item))
           );
         })
-        .catch(console.log);
+        .catch((err) => console.error("Error removing like:", err));
     } else {
       addCardLike(_id, token)
         .then((updatedCard) => {
@@ -124,7 +132,7 @@ function App() {
             cards.map((item) => (item._id === _id ? updatedCard.data : item))
           );
         })
-        .catch(console.log);
+        .catch((err) => console.error("Error adding like:", err));
     }
   };
 
@@ -151,7 +159,7 @@ function App() {
         setClothingItems((prevItems) =>
           prevItems.filter((item) => item._id !== cardId)
         );
-        setActiveModal("");
+        closeActiveModal("");
       })
       .catch((err) => console.error("Error deleting item:", err));
   };
@@ -258,14 +266,16 @@ function App() {
               <Route
                 path="/profile"
                 element={
-                  <Profile
-                    onLogout={handleLogout}
-                    handleCardClick={handleCardClick}
-                    clothingItems={clothingItems}
-                    onAddNewClick={handleAddClick}
-                    handleCardLike={handleCardLike}
-                    onEditProfileClick={onEditProfileClick}
-                  />
+                  <ProtectedRoute isLoggedIn={isLoggedIn}>
+                    <Profile
+                      onLogout={handleLogout}
+                      handleCardClick={handleCardClick}
+                      clothingItems={clothingItems}
+                      onAddNewClick={handleAddClick}
+                      handleCardLike={handleCardLike}
+                      onEditProfileClick={onEditProfileClick}
+                    />
+                  </ProtectedRoute>
                 }
               />
             </Routes>
@@ -285,7 +295,7 @@ function App() {
           <EditProfileModal
             isOpen={activeModal == "open-profile-modal"}
             onClose={closeActiveModal}
-            currentUser={user}
+            // currentUser={user}
             onUpdateProfile={onUpdateProfile}
           />
           <LoginModal

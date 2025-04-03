@@ -11,8 +11,8 @@ function ClothesSection({
   handleCardLike,
 }) {
   const currentUser = useContext(CurrentUserContext);
-  console.log(clothingItems);
-  console.log(currentUser);
+  // console.log(clothingItems);
+  // console.log(currentUser);
   return (
     <div className="clothes-section">
       <div className="clothes-section__header">

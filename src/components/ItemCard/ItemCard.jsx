@@ -27,14 +27,16 @@ function ItemCard({ item, onCardClick, handleCardLike }) {
     <li className="card">
       <div className="card__like-container">
         <h2 className="card__name">{item.name}</h2>
-        <button
-          onClick={toggleLike}
-          className={`like-button ${
-            isLiked(currentUser?._id, item.likes) ? "liked" : ""
-          }`}
-        >
-          {isLiked(currentUser?._id, item.likes) ? "❤️" : "🤍"}
-        </button>
+        {currentUser && (
+          <button
+            onClick={toggleLike}
+            className={`like-button ${
+              isLiked(currentUser?._id, item.likes) ? "liked" : ""
+            }`}
+          >
+            {isLiked(currentUser?._id, item.likes) ? "❤️" : "🤍"}
+          </button>
+        )}
       </div>
 
       <img

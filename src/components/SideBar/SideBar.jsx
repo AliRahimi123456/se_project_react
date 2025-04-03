@@ -5,7 +5,7 @@ import "./SideBar.css";
 
 function SideBar({ onLogout, onEditProfileClick }) {
   const currentUser = useContext(CurrentUserContext);
-  console.log(onEditProfileClick);
+
   return (
     <div className="sidebar">
       <div className="sidebar__profile">
