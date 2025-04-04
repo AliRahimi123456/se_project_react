@@ -31,16 +31,18 @@ function Header({ handleAddClick, weatherData, onSignUpClick, onLogInClick }) {
           + Add Clothes
         </button>
       )}
-      <Link to="/profile" className="header__link">
-        <div className="header__user-container">
-          <p className="header__username">{currentUser?.name}</p>
-          <img
-            src={currentUser?.avatar}
-            alt="User avatar"
-            className="header__avatar"
-          />
-        </div>
-      </Link>
+      {currentUser && (
+        <Link to="/profile" className="header__link">
+          <div className="header__user-container">
+            <p className="header__username">{currentUser?.name}</p>
+            <img
+              src={currentUser?.avatar}
+              alt="User avatar"
+              className="header__avatar"
+            />
+          </div>
+        </Link>
+      )}
       {!currentUser && (
         <div className="header__btn-container">
           <button onClick={onSignUpClick} className="header__btn">

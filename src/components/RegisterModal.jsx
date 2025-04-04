@@ -21,13 +21,14 @@ const RegisterModal = ({ onClose, onRegister, isOpen, onLogInClick }) => {
       title="SignUp"
       buttonText="SignUp"
       onSubmit={handleSubmit}
+      onClose={onClose}
     >
-      <button
+      {/* <button
         type="button"
         className="modal__close-btn"
         onClick={onClose}
         aria-label="Close modal"
-      ></button>
+      ></button> */}
       {/* <h>Register</h> */}
       <label className="modal__label">
         {" "}

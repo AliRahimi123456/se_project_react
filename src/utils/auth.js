@@ -1,11 +1,12 @@
 const BASE_URL = "http://localhost:3001";
+import { checkResponse } from "./api";
 
 export const registerUser = ({ name, avatar, email, password }) => {
   return fetch(`${BASE_URL}/signup`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, avatar, email, password }),
-  }).then((res) => res.json());
+  }).then(checkResponse);
 };
 
 export const loginUser = ({ email, password }) => {
@@ -13,8 +14,9 @@ export const loginUser = ({ email, password }) => {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
-  }).then((res) => res.json());
+  }).then(checkResponse);
 };
+
 export const updateProfile = (token, userData) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: "PATCH",
@@ -23,20 +25,15 @@ export const updateProfile = (token, userData) => {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify(userData),
-  }).then((res) => {
-    if (!res.ok) {
-      return res.json().then((err) => Promise.reject(err));
-    }
-    return res.json();
-  });
+  }).then(checkResponse);
 };
 
 export const checkToken = (token) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: "GET",
     headers: {
-      "Content-Type": "application//json",
-      authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
-  }).then((res) => res.json());
+  }).then(checkResponse);
 };

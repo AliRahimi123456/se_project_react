@@ -28,11 +28,11 @@ const EditProfileModal = ({ onUpdateProfile, onClose, isOpen }) => {
   return (
     <ModalWithForm
       isOpen={isOpen}
-      title="Edit Profile"
+      title="Change Profile Data"
       onSubmit={handleSubmit}
       onClose={onClose}
     >
-      <form onSubmit={handleSubmit} className="profileModal">
+      <div className="profileModal">
         <label className="modal__label">
           Name
           <input
@@ -74,7 +74,7 @@ const EditProfileModal = ({ onUpdateProfile, onClose, isOpen }) => {
         >
           Close
         </button>
-      </form>
+      </div>
     </ModalWithForm>
   );
 };

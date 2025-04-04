@@ -7,6 +7,9 @@
   margin-right: 24px;
 }
 .header__date-and-location {
+  font-family: Cabinet Grotesk;
+  font-weight: 700;
+  font-size: 20px;
   margin: 0;
 }
 .header__add-clothes-btn {

@@ -6,8 +6,6 @@ function ItemModal({ activeModal, onClose, card, handleDeleteClick }) {
   console.log("Item Modal Received:", card);
   const user = useContext(CurrentUserContext);
 
-  console.log(user);
-
   return (
     <div className={`modal ${activeModal === "preview" ? "modal_opened" : ""}`}>
       <div className="modal__content modal__content_type_image">

@@ -279,8 +279,9 @@ function App() {
                 }
               />
             </Routes>
+            <Footer />
           </div>
-          <Footer />
+
           <AddItemModal
             isOpen={activeModal === "add-garment"}
             onClose={closeActiveModal}
