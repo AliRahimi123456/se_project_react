@@ -141,4 +141,9 @@ export const coordinates = {
   latitude: 40.249199,
   longitude: -75.646759,
 };
+export const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? " https://api.wApplication.hardsoft.nu"
+    : "http://localhost:3001";
+
 export const APIkey = "78edb44e2e3f73c1c0df5afc784d688f";
