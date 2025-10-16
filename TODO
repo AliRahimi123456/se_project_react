@@ -1,0 +1,5 @@
+- once DNS is propogated
+
+- run `sudo certbot --nginx` on the server
+- run npm run deploy in this repository locally
+- on the server restart nginx

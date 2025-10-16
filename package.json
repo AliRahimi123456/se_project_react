@@ -10,7 +10,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "npm run build &&  scp -r ./dist/* ali_1996rahimiourzgani@wApplication.hardsoft.nu:/home/ali_1996rahimiourzgani/frontend"
+    "deploy": "npm run build &&  scp -r ./dist/* ali_1996rahimiourzgani@wApplication.hardsoft.nu:/home/ali_1996rahimiourzgani/wtwr-frontend"
   },
   "dependencies": {
     "react": "^18.3.1",
