@@ -21,13 +21,6 @@ const LoginModal = ({ onClose, handleLogin, onSignUpClick, isOpen }) => {
       onSubmit={handleSubmit}
       onClose={onClose}
     >
-      {/* <button
-        type="button"
-        className="modal__close-btn"
-        onClick={onClose}
-        aria-label="Close modal"
-      ></button> */}
-      {/* <h2>Log In</h2> */}
       <label className="modal__label">
         Email
         <input

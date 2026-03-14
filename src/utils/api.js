@@ -42,24 +42,6 @@ function deleteItem(id, token) {
   }).then(checkResponse);
 }
 
-// function deleteItem(cardId, token) {
-//   if (!token) {
-//     return Promise.reject("Error: Missing authentication token.");
-//   }
-
-//   return fetch(`${baseUrl}/items/${cardId}`, {
-//     method: "DELETE",
-//     headers: {
-//       Authorization: `Bearer ${token}`, // Ensure token is included
-//       "Content-Type": "application/json",
-//     },
-//   }).then(checkResponse);
-// }
-// function deleteItem(id) {
-//   return fetch(`${baseUrl}/items/${id}`, {
-//     method: "DELETE",
-//   }).then(checkResponse);
-// }
 
 function removeCardLike(id, token) {
   return request(`${BASE_URL}/items/${id}/likes`, {

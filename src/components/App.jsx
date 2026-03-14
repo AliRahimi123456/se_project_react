@@ -48,7 +48,6 @@ function App() {
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
   };
 
-  // Checking for the existing token
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (token) {
